@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="550.0" maxWidth="1100.0" minHeight="550.0" minWidth="1100.0" prefHeight="550.0" prefWidth="1100.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TradeScreenController">
+   <children>
+      <Pane layoutX="10.0" layoutY="94.0" prefHeight="444.0" prefWidth="778.0" style="-fx-background-color: #27292f; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="47.0" layoutY="15.0">
+               <image>
+                  <Image url="https://cryptologos.cc/logos/bitcoin-btc-logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="91.0" layoutY="9.0" text="Bitcoin" textFill="WHITE">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="203.0" layoutY="30.0" text="BTC" textFill="#909090">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TableView fx:id="table_tradehistory" layoutX="246.0" layoutY="147.0" prefHeight="268.0" prefWidth="512.0" style="-fx-background-color: grey; -fx-background-radius: 20;">
+              <columns>
+                <TableColumn fx:id="col_tradeid" maxWidth="50.0" prefWidth="50.0" text="id" />
+                <TableColumn fx:id="col_action" maxWidth="60.0" prefWidth="60.0" text="action" />
+                  <TableColumn fx:id="col_price" maxWidth="80.0" text="price" />
+                  <TableColumn fx:id="col_btc_amount" maxWidth="80.0" text="BTC amount" />
+                  <TableColumn fx:id="col_usd_amount" maxWidth="80.0" text="USD amonut" />
+                  <TableColumn fx:id="col_date" maxWidth="160.0" prefWidth="160.0" text="Date" />
+              </columns>
+            </TableView>
+            <Label layoutX="443.0" layoutY="114.0" text="Trade History" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Line endX="616.0" layoutX="161.0" layoutY="152.0" startX="-100.0" stroke="#f8f8f8" />
+      <CategoryAxis prefHeight="11.0" prefWidth="18.0" scaleX="0.0" scaleY="0.0" scaleZ="0.0" side="BOTTOM" />
+      <NumberAxis scaleX="0.0" scaleY="0.0" scaleZ="0.0" side="LEFT" />
+      <Label fx:id="label_btc_price" layoutX="62.0" layoutY="164.0" text="\$Waiting.." textFill="WHITE">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Pane layoutX="802.0" layoutY="94.0" prefHeight="444.0" prefWidth="290.0" style="-fx-background-color: #27292f; -fx-background-radius: 20;">
+         <children>
+            <Button fx:id="button_buy_btc" layoutX="20.0" layoutY="405.0" mnemonicParsing="false" onAction="#button_buy_btc_clicked" prefHeight="25.0" prefWidth="119.0" style="-fx-background-radius: 20; -fx-background-color: #C9F4AA;" text="BUY">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_sell_btc" layoutX="153.0" layoutY="405.0" mnemonicParsing="false" onAction="#button_sell_btc_clicked" prefHeight="25.0" prefWidth="119.0" style="-fx-background-radius: 20; -fx-background-color: #FF9F9F;" text="SELL" />
+            <Label layoutX="20.0" layoutY="14.0" text="Make a Trade" textFill="WHITE">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="174.0" text="Amount BTC" textFill="WHITE" />
+            <Pane layoutX="22.0" layoutY="289.0" prefHeight="98.0" prefWidth="250.0" style="-fx-background-color: grey; -fx-background-radius: 5;">
+               <children>
+                  <Label layoutX="6.0" layoutY="6.0" text="BTC in Wallet:" textFill="#cdcdcd">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="5.0" layoutY="23.0" text="USD in Wallet:" textFill="#dddddd">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_btc_in_wallet" layoutX="121.0" layoutY="6.0" text="wait" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_usd_in_wallet" layoutX="121.0" layoutY="23.0" text="wait" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="5.0" layoutY="62.0" text="Current Value:" textFill="#dddddd">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_total_value" layoutX="121.0" layoutY="62.0" text="wait" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="5.0" layoutY="40.0" text="Initial Capital  : $100,000.00" textFill="#dddddd">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Line endX="146.0" layoutX="122.0" layoutY="57.0" startX="-100.0" stroke="#f8f8f8" />
+            <TextField fx:id="textinput_amount_btc" layoutX="20.0" layoutY="193.0" prefHeight="47.0" prefWidth="250.0" promptText="Enter BTC amount" style="-fx-background-color: grey; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="20.0" layoutY="266.0" text="Wallet" textFill="WHITE" />
+            <Label layoutX="20.0" layoutY="85.0" text="Amount USD" textFill="WHITE" />
+            <TextField fx:id="textinput_amount_usd" layoutX="20.0" layoutY="104.0" prefHeight="47.0" prefWidth="250.0" promptText="Enter USD amount" style="-fx-background-color: grey; -fx-background-radius: 5; -fx-border-color: grey; -fx-border-radius: 5;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Label layoutX="67.0" layoutY="22.0" text="Coinby" textFill="WHITE">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="59.0" fitWidth="53.0" layoutX="14.0" layoutY="12.0">
+         <image>
+            <Image url="@iconsForExchangeApp/icon-logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1006.0" layoutY="18.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #E76161; -fx-background-radius: 10;" text="Exit &gt;" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_refresh" layoutX="898.0" layoutY="19.0" mnemonicParsing="false" onAction="#button_refresh_clicked" prefHeight="35.0" prefWidth="71.0" style="-fx-background-color: black;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
